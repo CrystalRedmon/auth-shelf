@@ -7,6 +7,7 @@ const itemsReducer = (state = {}, action) => {
     //   default:
     //     return state;
     // }
+    console.log('in items reducer', state, action);
   };
   
   // user will be on the redux state at:
