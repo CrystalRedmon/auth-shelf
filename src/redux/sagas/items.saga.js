@@ -49,6 +49,7 @@ function* addItems(action){
 
 function* itemsSaga() {
   yield takeLatest('FETCH_ITEMS', fetchItems);
+  yield takeLatest('ADD_ITEMS', addItems);
 }
 
 
