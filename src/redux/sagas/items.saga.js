@@ -9,7 +9,7 @@ function* fetchItems() {
         const response = yield axios.get('/api/shelf');
 
         yield put({
-            type: "FETCH_ITEMS",
+            type: "SET_ITEMS",
             payload: response.data,
         })
     } catch (error) {
@@ -37,8 +37,8 @@ function* fetchItems() {
 
 
 function* itemsSaga() {
-    
-  yield takeLatest('FETCH_USER', fetchItems);
+
+  yield takeLatest('FETCH_ITEMS', fetchItems);
 }
 
 export default itemsSaga;
