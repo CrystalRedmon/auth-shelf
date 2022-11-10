@@ -19,9 +19,19 @@ function* fetchItems() {
 function* addItems(action){
     try{
         yield axios.post('/api/shelf', {data: action.payload});
-        yield put({type: 'SET_ITEMS'})
+        yield put({type: 'FETCH_ITEMS'})
     }catch (error){
         console.log('post failed')
+    }
+}
+
+function* deleteItem(action){
+    console.log('the action payload of deleted item is', action.payload)
+    try{
+        yield axios.delete(`/api/shelf/${action.payload}`);
+        yield put({type: 'FETCH_ITEMS'})
+    } catch (error) {
+        console.log('error deleting item')
     }
 }
 
@@ -50,6 +60,9 @@ function* addItems(action){
 function* itemsSaga() {
   yield takeLatest('FETCH_ITEMS', fetchItems);
   yield takeLatest('ADD_ITEMS', addItems);
-  }
+  yield takeLatest('DELETE_ITEM', deleteItem)
+}
+
+
 
 export default itemsSaga;
