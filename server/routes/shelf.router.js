@@ -2,7 +2,6 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-const { shallowEqual } = require('react-redux');
 
 /**
  * Get all of the items on the shelf

@@ -2,7 +2,6 @@
 import AddItemForm from '../AddItemForm/AddItemForm'; 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import {useParams} from 'react-router-dom'
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Card from '@mui/material/Card';
@@ -13,11 +12,9 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
 function ShelfPage() {
-  const params = useParams();
   const dispatch = useDispatch();
   const shelfItems = useSelector(store => store.items);
   console.log('shelf items are', shelfItems);
-  // console.log(shelfItems);
 
   useEffect(() => {
     dispatch({
