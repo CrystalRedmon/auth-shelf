@@ -6,4 +6,4 @@
 [X] Create Reducer using FETCH_ITEMS
     [X] nest reducer under _root.reducer.js
 
-[ ] Add rendered items into Shelf Page
+[X] Add rendered items into Shelf Page
