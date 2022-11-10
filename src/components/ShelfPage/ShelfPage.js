@@ -1,3 +1,5 @@
+
+import AddItemForm from '../AddItemForm/AddItemForm'; 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
@@ -14,6 +16,9 @@ function ShelfPage() {
 
   return (
     <div className="container">
+
+      <AddItemForm></AddItemForm>
+      
       <h2>Shelf</h2>
       <ul>{shelfItems.map(item => (
         <li key={item.id}>
