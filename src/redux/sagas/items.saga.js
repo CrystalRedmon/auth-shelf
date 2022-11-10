@@ -19,7 +19,7 @@ function* fetchItems() {
 function* addItems(action){
     try{
         yield axios.post('/api/shelf', {data: action.payload});
-        yield put({type: 'SET_ITEMS'})
+        yield put({type: 'FETCH_ITEMS'})
     }catch (error){
         console.log('post failed')
     }

@@ -35,8 +35,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                     ($1, $2, $3);`;
 
   const sqlParams = [
-    req.body.description,
-    req.body.image_url,
+    req.body.data.description,
+    req.body.data.image_url,
     req.user.id
   ]
 
