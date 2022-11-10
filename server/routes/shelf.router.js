@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
  */
 router.post('/', rejectUnauthenticated, (req, res) => {
    // endpoint functionality
-   
+   console.log('am i authenticated?????', req.user)
    console.log(req.body);
 
   const sqlText = `INSERT INTO "item"
@@ -34,8 +34,10 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const sqlParams = [
     req.body.description,
     req.body.image_url,
-    req.body.user_id
+    req.user.id
   ]
+
+  console.log('sql params is??????', sqlParams)
   pool.query(sqlText, sqlParams)
   .then(dbRes=>{
     res.sendStatus(200);
@@ -53,6 +55,18 @@ router.post('/', rejectUnauthenticated, (req, res) => {
  */
 router.delete('/:id', (req, res) => {
   // endpoint functionality
+
+  // const sqlText = `DELETE FROM "item" WHERE "id" = $1;`;
+  // const sqlParams = req.params.id
+  pool.query(sqlText, [sqlParams])
+  .then((dbRes) => {
+    res.send(200)
+  })
+  .catch((err) => {
+
+  })
+
+
 });
 
 /**

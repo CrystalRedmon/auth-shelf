@@ -37,6 +37,7 @@ function* fetchItems() {
 
 
 function* itemsSaga() {
+    
   yield takeLatest('FETCH_USER', fetchItems);
 }
 
