@@ -4,6 +4,17 @@ import { put, takeLatest } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchItems() {
     console.log('in items.saga');
+
+    try {
+        const response = yield axios.get('/api/shelf');
+
+        yield put({
+            type: "FETCH_ITEMS",
+            payload: response.data,
+        })
+    } catch (error) {
+        console.log('get items request failed', error);
+    }}
 //   try {
 //     const config = {
 //       headers: { 'Content-Type': 'application/json' },
@@ -23,7 +34,7 @@ function* fetchItems() {
 //   } catch (error) {
 //     console.log('User get request failed', error);
 //   }
-}
+
 
 function* itemsSaga() {
   yield takeLatest('FETCH_USER', fetchItems);
