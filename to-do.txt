@@ -1,7 +1,9 @@
-[ ] Create Saga
-    [ ] create FETCH_ITEMS in watcher
-    [ ] create axios.get request with type FETCH_ITEMS
+[X] Create Saga
+    [X] create FETCH_ITEMS in watcher
+    [X] create axios.get request with type FETCH_ITEMS
 [X] In shelf.router
     [X] complete get route (SELECT items)
-[ ] Create Reducer using FETCH_ITEMS
-    [ ] nest reducer under _root.reducer.js
+[X] Create Reducer using FETCH_ITEMS
+    [X] nest reducer under _root.reducer.js
+
+[ ] Add rendered items into Shelf Page
