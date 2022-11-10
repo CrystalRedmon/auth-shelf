@@ -34,7 +34,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const sqlParams = [
     req.body.description,
     req.body.image_url,
-    req.body.user_id
+    req.user.id,
   ]
   pool.query(sqlText, sqlParams)
   .then(dbRes=>{
@@ -43,7 +43,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   })
   .catch(error=>{
     res.sendStatus(500);
-    console.log('Add failed');
+    console.log('Add failed', error);
   })
 
 });

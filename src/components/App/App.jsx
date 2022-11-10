@@ -68,9 +68,13 @@ function App() {
           >
             <ShelfPage />
           </ProtectedRoute>
+          <ProtectedRoute
+            exact
+            path="/form">
+            <AddItemForm />
+          </ProtectedRoute>
 
 
-           
           <Route
             exact
             path="/login"
