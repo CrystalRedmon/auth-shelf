@@ -15,6 +15,17 @@ function* fetchItems() {
     } catch (error) {
         console.log('get items request failed', error);
     }}
+
+function* addItems(action){
+    try{
+        yield axios.post('/api/shelf', {data: action.payload});
+        yield put({type: 'SET_ITEMS'})
+    }catch (error){
+        console.log('post failed')
+    }
+}
+
+
 //   try {
 //     const config = {
 //       headers: { 'Content-Type': 'application/json' },
@@ -37,9 +48,9 @@ function* fetchItems() {
 
 
 function* itemsSaga() {
-
   yield takeLatest('FETCH_ITEMS', fetchItems);
-  
 }
+
+
 
 export default itemsSaga;
