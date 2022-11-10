@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 router.post('/', rejectUnauthenticated, (req, res) => {
    // endpoint functionality
    
-   console.log(req.body);
+   console.log(req.body.data);
 
   const sqlText = `INSERT INTO "item"
                     ("description", "image_url", "user_id")
@@ -32,8 +32,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                     ($1, $2, $3);`;
 
   const sqlParams = [
-    req.body.description,
-    req.body.image_url,
+    req.body.data.description,
+    req.body.data.image_url,
     req.user.id,
   ]
   pool.query(sqlText, sqlParams)

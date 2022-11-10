@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {useDispatch} from 'react-redux';
 
 
 function AddItemForm(){
@@ -7,6 +8,7 @@ function AddItemForm(){
         description: '',
         image_url: ''
     })
+    const dispatch = useDispatch();
 
 
     function addDescription(event){
@@ -37,11 +39,15 @@ function AddItemForm(){
 
 
 
-
     function handleSubmit(event){
         event.preventDefault();
 
-        
+        dispatch({
+            type: 'ADD_ITEMS',
+            payload: newItem
+        })
+
+
     }
 
     return(<>
@@ -63,7 +69,7 @@ function AddItemForm(){
         onChange={addImageURL}
         placeholder="Image URL" />
 
-        <button type="submit"></button>
+        <button type="submit">Submit</button>
         </form>
 
     </>)
