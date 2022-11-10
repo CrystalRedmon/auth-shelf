@@ -31,11 +31,12 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   console.log(req.body.data);
 
   const sqlText = `INSERT INTO "item"
-                    ("description", "image_url", "user_id")
+                    ("name", "description", "image_url", "user_id")
                     VALUES
-                    ($1, $2, $3);`;
+                    ($1, $2, $3, $4);`;
 
   const sqlParams = [
+    req.body.data.name,
     req.body.data.description,
     req.body.data.image_url,
     req.user.id

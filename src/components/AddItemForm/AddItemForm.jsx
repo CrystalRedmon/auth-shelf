@@ -44,25 +44,26 @@ function AddItemForm(){
 
         dispatch({
             type: 'ADD_ITEMS',
-            payload: newItem
+            payload: newItem,
         })
-
-
     }
 
     return(<>
         <h1>Add an Item</h1>
 
         <form onSubmit={handleSubmit}>
+
+        <input
+        onChange={addName}
+        placeholder="Name"
+        type="text" />
+
         <input
         onChange={addDescription}
         placeholder="Description"
         type="text" />
 
-        <input
-        onChange={addName}
-        placeholder="name"
-        type="text" />
+
 
         <input 
         type="text"
